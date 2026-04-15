@@ -7,19 +7,19 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: Inventory-service
-          uri: lb://Inventory-service
+        - id: inventory-service
+          uri: lb://inventory-service-lb
           predicates:
             - Path=/inventory/**
 
-        - id: OrderService
-          uri: lb://OrderService
+        - id: order-service
+          uri: lb://order-service-lb
           predicates:
             - Path=/orders/**
 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:9000/eureka/
+      defaultZone: http://localhost:8000/eureka/
   instance:
     prefer-ip-address: true
