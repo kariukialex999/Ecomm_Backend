@@ -3,17 +3,21 @@ server:
 
 spring:
   application:
-    name: ApiGateway
+    name: api-gateway
+
+  config:
+    import: optional:configserver:http://localhost:8888
+
   cloud:
     gateway:
       routes:
         - id: inventory-service
-          uri: lb://inventory-service-lb
+          uri: lb://inventory-service
           predicates:
             - Path=/inventory/**
 
         - id: order-service
-          uri: lb://order-service-lb
+          uri: lb://order-service
           predicates:
             - Path=/orders/**
 
@@ -21,5 +25,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8000/eureka/
+
   instance:
     prefer-ip-address: true
