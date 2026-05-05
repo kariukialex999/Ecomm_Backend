@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.kariioke</groupId>
-	<artifactId>AuditingService</artifactId>
+	<artifactId>AuthenticationService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>AuditingService</name>
-	<description>AuditingService</description>
+	<name>Authentication Service</name>
+	<description>Authentication Service</description>
 	<url/>
 	<licenses>
 		<license/>
