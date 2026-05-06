@@ -11,6 +11,7 @@
         <module name="AuditingService" />
         <module name="ConfigServer" />
         <module name="OrderService" />
+        <module name="AuthenticationService" />
         <module name="ApiGateway" />
         <module name="Inventory-service" />
       </profile>
@@ -23,6 +24,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ApiGateway" options="-parameters" />
       <module name="AuditingService" options="-parameters" />
+      <module name="AuthenticationService" options="-parameters" />
       <module name="ConfigServer" options="-parameters" />
       <module name="EurekaServer" options="-parameters" />
       <module name="Inventory-service" options="-parameters" />

@@ -22,9 +22,14 @@ public class TraceIdFilter implements WebFilter {
         }
 
         final String finalTraceId = traceId;
+
         exchange.getResponse().getHeaders().add(TRACE_ID, finalTraceId);
 
-        return chain.filter(exchange)
+        ServerWebExchange mutatedExchange = exchange.mutate()
+                .request(r -> r.header(TRACE_ID, finalTraceId))
+                .build();
+
+        return chain.filter(mutatedExchange)
                 .contextWrite(ctx -> ctx.put(TRACE_ID, finalTraceId))
                 .doOnSubscribe(s -> MDC.put(TRACE_ID, finalTraceId))
                 .doFinally(s -> MDC.clear());

@@ -1,4 +1,4 @@
-package com.kariioke.auditingservice.filter;
+package org.kariioke.auditingservice.filter;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;

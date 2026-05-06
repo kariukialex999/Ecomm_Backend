@@ -1,22 +1,25 @@
 server:
-  port: 8889
+  port: 8080
 
 spring:
   application:
-    name: config-server
+    name: api-gateway
 
   cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/kariukialex999/ApiGateway.git
-          default-label: main
-          clone-on-start: true
+    gateway:
+      routes:
+        - id: inventory-service
+          uri: lb://inventory-service
+          predicates:
+            - Path=/inventory/**
+
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/orders/**
 
 eureka:
   client:
-    register-with-eureka: true
-    fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
   instance:
@@ -27,4 +30,9 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: health,info,env
+
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.gateway: DEBUG
