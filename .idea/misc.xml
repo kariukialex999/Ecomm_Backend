@@ -13,6 +13,7 @@
         <option value="$PROJECT_DIR$/ConfigServer/pom.xml" />
         <option value="$PROJECT_DIR$/AuditingService/pom.xml" />
         <option value="$PROJECT_DIR$/Authentication Service/pom.xml" />
+        <option value="$PROJECT_DIR$/AuthenticationService/pom.xml" />
       </list>
     </option>
   </component>
